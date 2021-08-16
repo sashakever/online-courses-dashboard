@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { HomePage, CoursePage, UserPage, NotificationPage, SettingsPage } from '../pages';
 import SideMenu from '../side-menu';
@@ -14,12 +14,7 @@ const App = () => {
                 <SideMenu/>
             </div>
             <div className="app__body">
-                <Switch>
-                    <Route
-                        path="/"
-                        component={HomePage}
-                        exact
-                    />
+                <Switch>                    
                     <Route
                         path="/course"
                         component={CoursePage}                            
@@ -36,6 +31,12 @@ const App = () => {
                         path="/settings"
                         component={SettingsPage}                            
                     />
+                    <Route
+                        path="/"
+                        component={HomePage}
+                        exact
+                    />
+                    <Redirect to="/" />
                 </Switch>
             </div>            
         </div>

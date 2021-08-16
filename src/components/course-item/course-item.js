@@ -3,7 +3,7 @@ import Button from "../button";
 import Title from "../title";
 
 import './course-item.scss'
-//import ico1 from '../../img/icons/ico_01.png';
+//import ico1 from '../../img/icons/ico_01.png';//course.coverImage
 
 const CourseItem = ({ course, isCommon = true, onAction}) => {
 
@@ -11,7 +11,7 @@ const CourseItem = ({ course, isCommon = true, onAction}) => {
     const commonBlock = (
         <Fragment>
             <div className="course-item__img">
-                <img src={course.coverImage} alt='icon'/>
+                <img src={course.coverImage} alt='icon'/> 
             </div>
             <div className="course-item__description">
                 <div className="course-item__title">

@@ -10,7 +10,7 @@ export default class CoursesService {
       created: '01.01.2020',
       top: '4',
       rating: '4,9',
-      coverImage: '/img/icons/ico_01.png'
+      coverImage: require('../source/img/icons/ico_01.png').default//'../source/img/icons/ico_01.png'
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export default class CoursesService {
       created: '01.02.2019',
       top: '3',
       rating: '4,7',
-      coverImage: '/img/icons/ico_02.png'
+      coverImage: require('../source/img/icons/ico_02.png').default
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default class CoursesService {
       created: '03.03.2019',
       top: '2',
       rating: '4,6',
-      coverImage: '/img/icons/ico_03.png'
+      coverImage: require('../source/img/icons/ico_03.png').default
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ export default class CoursesService {
       created: '04.04.2020',
       top: '1',
       rating: '4,8',
-      coverImage: '/img/icons/ico_04.png'
+      coverImage: require('../source/img/icons/ico_04.png').default
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ export default class CoursesService {
       created: '01.05.2021',
       top: '0',
       rating: '4,7',
-      coverImage: '/img/icons/ico_05.png'
+      coverImage: require('../source/img/icons/ico_05.png').default
     },
   ];
 
@@ -107,7 +107,7 @@ export default class CoursesService {
       duration: '3h 15min',
       rating: '4,7',
       progress: '36%',
-      coverImage: '/img/icons/ico_02.png'
+      coverImage: require('../source/img/icons/ico_02.png').default
     },
     {
       id: 3,
@@ -116,7 +116,7 @@ export default class CoursesService {
       duration: '7h 40min',
       rating: '4,6',
       progress: '52%',
-      coverImage: '/img/icons/ico_03.png'
+      coverImage: require('../source/img/icons/ico_03.png').default
     },
     {
       id: 4,
@@ -125,7 +125,7 @@ export default class CoursesService {
       duration: '11h 30min',
       rating: '4,8',
       progress: '93%',
-      coverImage: '/img/icons/ico_04.png'
+      coverImage: require('../source/img/icons/ico_04.png').default
     },
   ];
 

@@ -30,7 +30,7 @@ const HomePage = ({ user }) => {
         userBloc = (
             <div className="home-page__login">
                 <i className="bi bi-bell"></i>
-                <img src='/img/avatar.png' alt='avatar' />
+                <img src={require('../../source/img/avatar.png').default} alt='avatar' />
             </div>
         );
         statistics = (
@@ -46,7 +46,7 @@ const HomePage = ({ user }) => {
                 <div className="home-page__hi-header">
                     <h1>Hello {user.name}!</h1>
                     <h3>{welcome}</h3>
-                    <img src='/img/hi.png' alt="hi" />
+                    <img src={require('../../source/img/hi.png').default} alt="hi" />
                 </div>
                 {slider}
                 <div className="home-page__courses-title">
@@ -92,7 +92,7 @@ const HomePage = ({ user }) => {
                             </div>
                         </div>
                         <div className="premium__right">
-                            <img src='/img/premium.png' alt='premium' />
+                            <img src={require('../../source/img/premium.png').default} alt='premium' />
                         </div>
                     </div>
                 </div>

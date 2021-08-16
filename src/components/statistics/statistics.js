@@ -30,7 +30,7 @@ const Statistics = () => {
                 <ButtonText title="Learning Hours" />
                 <ButtonText title="My Courses" isActive={false} />
             </div>
-            <img src='/img/chart.png' alt='chart'/>
+            <img src={require('../../source/img/chart.png').default} alt='chart'/>
         </div>
     );
 }
