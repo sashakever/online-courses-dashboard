@@ -1,0 +1,49 @@
+.statistics{
+    &__cols {
+        display: flex;
+        margin: 0 -10px;
+    }
+    &__col {
+        flex: 1 1 50%;        
+        padding: 0 10px;
+        div{
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            width: 100%;
+            height: 100px;
+            background: #F5F5F7;
+            border-radius: 14px;
+            margin-bottom: 40px;
+            
+        }
+        span {
+            font-family: 'Baloo Bhai 2';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 102px;
+            color: #0C0B0B;
+            margin: 0 20px;
+        }
+        p {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: #0C0B0B;
+        }
+    }
+    &__title {
+        margin-bottom: 16px;
+    }
+    &__buttons {
+        margin-bottom: 16px;
+        display: flex;
+    }
+    img {
+        width: 100%;
+        height: 266px;
+    }
+}

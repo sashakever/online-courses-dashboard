@@ -1,0 +1,10 @@
+.courses-list{
+    &__buttons{
+        display: flex;
+    }
+    &__items{
+        li {
+            margin-bottom: 16px;
+        }
+    }
+}

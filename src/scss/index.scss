@@ -1,0 +1,47 @@
+$maincolor: #0C0B0B;
+$fontSize: 16;
+$minWidth: 320px;
+$maxWidth: 1440;
+$maxWidthContainer: 1270;
+$fontFamily:"Roboto";
+
+@import "null";
+
+
+body {
+  margin: 0;
+  font-family: 'Roboto';
+  font-size:13px;
+  //font-weight: 700;
+  color:$maincolor;
+}
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+//<ОБОЛОЧКА>===========================================================================================================
+/*.wrapper {
+  width: 100%;
+  min-height: 100%;
+  //overflow: hidden;
+  //display: flex;
+  flex-direction: column;
+
+}
+
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+._container {
+  max-width: $maxWidthContainer + px;
+  padding: 0px 15px;
+  margin: 0 auto;
+  //display: flex;
+  height: 100vh;
+  //flex: 1 1 auto;
+  //height: 100%;
+}
+
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+*/

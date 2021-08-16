@@ -1,0 +1,127 @@
+.home-page {
+    display: flex;
+    padding: 20px 0px 20px 20px;
+
+    &__left-col {
+        flex: 1 1 auto;
+        padding-right: 20px;
+        min-width: 600px;
+    }
+    &__right-col {
+        flex: 0 0 440px;
+    }
+    &__hi-header {
+        width: 100%;
+        height: 160px;
+        background: #F5F5F7;
+        border-radius: 14px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 25px;
+        h1 {
+            font-family: 'Baloo Bhai 2';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 57px;
+            color: #0C0B0B;
+        }
+        h3 {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: #0C0B0B;
+        }
+        img {
+            position: absolute;
+            width: 175px;
+            height: 170px;
+            bottom: 0px;
+            right: 50px;
+        }
+    }
+    &__my-courses {}
+    &__courses-title {
+        margin-bottom: 20px;
+    }
+    &__courses {}
+    &__search-login {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        img {
+            width: 65px;
+            height: 65px;
+            border-radius: 8px;
+            margin: 0 10px;
+        }
+        i {
+            font-size: 45px;
+            margin: 0 10px;
+        }
+    }
+    &__search {
+        flex: 1 1 auto;
+        width: 100%;
+        height: 40px;
+        background: #F5F5F7;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        i {
+            font-size: 16px;
+        }
+        input {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: none;
+            background: #F5F5F7;
+            border-radius: 8px;
+        }
+    }
+    &__login {
+        display: flex;
+        align-items:center;
+    }
+    &__statistics {
+        margin-bottom: 20px;
+    }
+}
+
+.premium {
+    height: 193px;
+    background: #F5F5F7;
+    border-radius: 14px;
+    &__cols{
+        display: flex;
+        align-items: center;
+    }
+    &__left{
+        flex: 0 0 60%;
+        padding: 30px;
+    }
+    &__right{
+        img {
+            width: 125px;
+            height: 125px;
+        }
+    }
+    &__text {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #0C0B0B;
+        margin-bottom: 20px;
+    }
+    &__button {}
+}

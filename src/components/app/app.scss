@@ -1,0 +1,39 @@
+.app {
+    &__wrapper {
+        display: grid;
+        grid-template-columns: auto 120px minmax(320px,1200px) auto;
+        grid-template-rows: auto 1fr;
+        min-height: 100vh;
+        grid-template-areas: 
+        ". header header ."
+        ". sidebar body .";
+    }
+    &__header {
+        grid-area: header;
+        display: none;
+    }
+    &__sidebar {
+        grid-area: sidebar;
+        //height: 100vh;
+        padding: 20px 0px 20px 20px;
+    }
+    &__body {
+        grid-area: body;
+    }    
+}
+
+/*.main{
+    min-height: 100%;
+    display: flex;
+    &__left {
+        flex: 0 0 120px;
+        padding: 32px 0px;
+    }
+    &__right {
+        flex: 1 1 auto;
+    }
+}
+
+.main-container{
+    //min-height: 100%;
+}*/
