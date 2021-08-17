@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { motion, usePresence, AnimatePresence } from 'framer-motion'
 
 import ButtonText from "../button-text";
 import CourseItem from "../course-item";
@@ -20,6 +21,27 @@ const CoursesList = ({ courses, searchText="", sorted, onSortedBy, onViewCourse}
         });
     } else filteredCourses = courses;
 
+    const [isPresent, safeToRemove] = usePresence();
+
+    const transition = { type: 'spring', stiffness: 500, damping: 50, mass: 1 };
+
+    const animations = {
+        layout: true,
+        initial: 'out',
+        style: {
+            position: isPresent ? 'static' : 'absolute'
+        },
+        animate: isPresent ? 'in' : 'out',
+        //whileTap: 'tapped',
+        variants: {
+            in: { scaleY: 1, opacity: 1},
+            out: { scaleY: 0, opacity: 0, zIndex: -1},
+            //tapped: { scale: 0.98, opacity: 0.5, transition: { duration: 0.1 } }
+        },
+        onAnimationComplete: () => !isPresent && safeToRemove(),
+        transition
+    }
+
     return (
         <div className="courses-list">
             <div className="courses-list__buttons">
@@ -36,18 +58,20 @@ const CoursesList = ({ courses, searchText="", sorted, onSortedBy, onViewCourse}
                     isActive={sorted ==='rating' ? true : false}
                     onEvent={() => onSortedBy('rating')} />
             </div>
+            <AnimatePresence>
             <ul className="courses-list__items">
                 {                    
                 filteredCourses.map((course) => {
                     return (
-                        <li key={course.id}>
+                        <motion.li {...animations} key={course.id}>
                             <CourseItem course={course}
                                 onViewCourse={() => onViewCourse(course.id) }/>
-                        </li>
+                        </motion.li>
                     );
                 })
             }
             </ul>
+            </AnimatePresence>
         </div>
     );
 }

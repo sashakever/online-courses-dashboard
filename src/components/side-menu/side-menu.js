@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 import { useLocation, Link, useHistory} from "react-router-dom";
 
@@ -8,8 +9,7 @@ import { setDefaultUser } from '../../actions'
 import './side-menu.scss';
 
 
-const SideMenu = ({ user, onDefaultUser}) => {//fill
-
+const SideMenu = ({ user, onDefaultUser}) => {//fill    
 
     const splitLocation  = useLocation().pathname.split("/");
     //console.log(splitLocation);
@@ -38,37 +38,92 @@ const SideMenu = ({ user, onDefaultUser}) => {//fill
         userButton = (<i className="bi bi-door-open"></i>);
     }
     let history = useHistory();
+
+    const container = {
+        visible: {
+            opasity: 1,
+            scale: 1,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.3
+            }
+        },
+        hidden: {
+            opasity: 1,
+            scale: 0
+        },
+    }
+
+    const itemList = {
+        hidden: {
+            y: 200,
+            opacity: 0.1,
+        },
+        visible: {
+            y: 0,
+            opacity: 1,
+        }
+    } 
+
     return (
-        <div className="side-menu">
+        <motion.div
+            variants={container}
+            initial='hidden'
+            animate='visible'
+            className="side-menu">
             <div className="side-menu__logo">F.</div>
             <ul className="side-menu__items">
-                <li className="side-menu__item">
+                <motion.li
+                    whileHover={{ scale: 1.5 }}
+                    whileTap={{ scale: 0.8 }}
+                    
+                    className="side-menu__item">
                     <Link to='/'>
-                        <i className={clazzHome} />
+                        <motion.i variants={itemList} className={clazzHome} />
                     </Link>
-                </li>
-                <li className="side-menu__item">
+                </motion.li>
+                <motion.li
+                    whileHover={{ scale: 1.5 }}
+                    whileTap={{ scale: 0.8 }}
+                    variants={itemList}
+                    className="side-menu__item">
                     <Link to="/course">
-                        <i className={clazzCourse} />
+                        <motion.i variants={itemList} className={clazzCourse} />
                     </Link>
-                </li>
-                <li className="side-menu__item">
+                </motion.li>
+                <motion.li
+                    whileHover={{ scale: 1.5 }}
+                    whileTap={{ scale: 0.8 }}
+                    variants={itemList}
+                    className="side-menu__item">
                     <Link to="/user">
-                        <i className={clazzUser}/>
+                        <motion.i variants={itemList} className={clazzUser}/>
                     </Link>
-                </li>
-                <li className="side-menu__item">
+                </motion.li>
+                <motion.li
+                    whileHover={{ scale: 1.5 }}
+                    whileTap={{ scale: 0.8 }}
+                    variants={itemList}
+                    className="side-menu__item">
                     <Link to="/notification">
-                        <i className={clazzNotification} />
+                        <motion.i variants={itemList} className={clazzNotification} />
                     </Link>
-                </li>
-                <li className="side-menu__item">
+                </motion.li>
+                <motion.li
+                    whileHover={{ scale: 1.5 }}
+                    whileTap={{ scale: 0.8 }}
+                    variants={itemList}
+                    className="side-menu__item">
                     <Link to="/settings">
-                        <i className={clazzSettings} />
+                        <motion.i variants={itemList} className={clazzSettings} />
                     </Link>
-                </li>
+                </motion.li>
             </ul>
-            <div className="side-menu__logout"
+            <motion.div
+                whileHover={{ scale: 1.5 }}
+                whileTap={{ scale: 0.8 }}
+                variants={itemList}
+                className="side-menu__logout"
                 onClick={() => {
                     if (user.login === 'guest') {
                         history.push('/user');
@@ -77,8 +132,8 @@ const SideMenu = ({ user, onDefaultUser}) => {//fill
                     }
                 }}>
                 {userButton}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 

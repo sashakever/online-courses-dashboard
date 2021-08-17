@@ -6,6 +6,7 @@ import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 import { withCourseService } from '../hoc';
 import { fetchCoursesByUser } from '../../actions';
+import { motion } from 'framer-motion';
 
 import './courses-slider.scss'
 import 'swiper/swiper.scss';
@@ -51,19 +52,23 @@ const CoursesSlider = ({courses}) => {
                     
                 </div>
                 <div className="slider__buttons">
-                    <button
+                    <motion.button
                         className="swiper-button-prev"
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{scale: 0.85}}
                         //ref={prevRef}
                         onClick={goPrev}
                     >
                         <i className="bi bi-arrow-left-circle"></i>
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{scale: 0.85}}
                         className="swiper-button-next"
                         onClick={goNext}
                     >
                         <i className="bi bi-arrow-right-circle"></i>
-                    </button>
+                    </motion.button>
                 </div>
             </div>           
     );

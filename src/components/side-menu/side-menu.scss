@@ -31,6 +31,10 @@
         margin-bottom: 50px;
         a {
             color:#fff;
+            i {
+                display: block;
+                //opacity: 0;
+            }
         }
     }
     &__logout{

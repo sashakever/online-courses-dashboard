@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { connect  } from 'react-redux';
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import Title from '../title';
 import Button from '../button';
@@ -29,8 +30,31 @@ const HomePage = ({ user }) => {
         );
         userBloc = (
             <div className="home-page__login">
-                <i className="bi bi-bell"></i>
-                <img src={require('../../source/img/avatar.png').default} alt='avatar' />
+                <motion.div
+                    initial={{ scale: 1, }}
+                    animate={{ scale: [1, 1.4, 0.6, 1.4, 1] }}
+                    transition={{
+                        repeat: Infinity,
+                        repeatDelay: 2,
+                    }}
+                    className="home-page__notification-number">
+                    <span>2</span>
+                </motion.div>
+                <motion.i
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{scale: 0.85}}
+                    className="bi bi-bell"></motion.i>
+                <motion.img
+                    initial={{ scale: 0 }}
+                    animate={{ rotate: 360, scale: 1 }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 360,
+                        damping: 20,
+                        mass: 2 
+                        //delay: 1
+                    }}
+                    src={require('../../source/img/avatar.png').default} alt='avatar' />
             </div>
         );
         statistics = (
@@ -41,13 +65,26 @@ const HomePage = ({ user }) => {
     }
     const [searchText, setSearchText] = useState(null);
     return (
-        <div className="home-page">
+        <div className="home-page">            
             <div className="home-page__left-col">
-                <div className="home-page__hi-header">
+                <motion.div
+                    initial={{
+                        y: -500,
+                    }}
+                    animate={{
+                        y: 0,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 26,
+                        mass: 1.4,
+                    }}
+                    className="home-page__hi-header">
                     <h1>Hello {user.name}!</h1>
                     <h3>{welcome}</h3>
                     <img src={require('../../source/img/hi.png').default} alt="hi" />
-                </div>
+                </motion.div>
                 {slider}
                 <div className="home-page__courses-title">
                     <Title title='Courses' />
@@ -95,7 +132,7 @@ const HomePage = ({ user }) => {
                             <img src={require('../../source/img/premium.png').default} alt='premium' />
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
     );
