@@ -3,7 +3,6 @@ import Title from "../title";
 import ButtonText from "../button-text";
 
 import './statistics.scss'
-//import chart from '../../img/chart.png';
 
 const Statistics = () => {
 

@@ -11,21 +11,21 @@ const updateCourseByUser = (state, action) => {
     }
 
     switch (action.type) {
-        case typesCoursesByUser.fetch_courses_user_req://'FETCH_COURSES_REQUEST':
+        case typesCoursesByUser.fetch_courses_user_req:
         return {
             courses: [],
             loading: true,
             error: null
         };
 
-        case typesCoursesByUser.fetch_courses_user_suc://'FETCH_COURSES_SUCCESS':
+        case typesCoursesByUser.fetch_courses_user_suc:
         return {
             courses: action.payload,
             loading: false,
             error: null
         };
 
-        case typesCoursesByUser.fetch_courses_user_fail://'FETCH_COURSES_FAILURE':
+        case typesCoursesByUser.fetch_courses_user_fail:
         return {
             courses: [],
             loading: false,

@@ -57,11 +57,7 @@ export default class CoursesService {
   getCourses() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        //if (Math.random() > 0.75) {
-          //reject(new Error('Error once out of four!!! [TESTE-MODE] - Please, refresh the page'));
-        //} else {
-          resolve(this.dataCourses);
-        //}
+        resolve(this.dataCourses);        
       }, 500);
     });
   }
@@ -83,10 +79,6 @@ export default class CoursesService {
   };
   
   getUser(user) {
-    /*console.log(user);    
-    return new Promise((resolve, reject) => {
-      resolve(this.dataUserTest);
-    });*/
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if ((this.dataUser.login !== user.login.trim()) &&
@@ -95,7 +87,7 @@ export default class CoursesService {
         } else {
           resolve(this.dataUser);
         }
-      }, 500);
+      }, 100);
     });
   }
 

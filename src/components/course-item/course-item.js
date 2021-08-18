@@ -2,12 +2,10 @@ import React, {Fragment} from "react";
 import Button from "../button";
 import Title from "../title";
 
-import './course-item.scss'
-//import ico1 from '../../img/icons/ico_01.png';//course.coverImage
+import './course-item.scss';
 
 const CourseItem = ({ course, isCommon = true, onAction}) => {
 
-    //const logo = require(course.coverImage);
     const commonBlock = (
         <Fragment>
             <div className="course-item__img">

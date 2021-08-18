@@ -1,7 +1,6 @@
 import { typesCourses } from '../actions/types-for-actions';
 import sortArray from 'sort-array';
 
-//const sortArray = require('sort-array');
 
 const updateCourseList = (state, action) => {
 
@@ -14,13 +13,10 @@ const updateCourseList = (state, action) => {
         };
     }
 
-    const coursesArray = [...state.coursesList.courses]; //Array.from(state.coursesList.courses);
-    //sortArray(coursesArray);
-    //console.log(state.coursesList.courses);
-    //console.log(coursesArray);
+    const coursesArray = [...state.coursesList.courses]; 
 
     switch (action.type) {
-        case typesCourses.fetch_courses_req://'FETCH_COURSES_REQUEST':
+        case typesCourses.fetch_courses_req:
         return {
             courses: [],
             sorted: 'all',
@@ -28,7 +24,7 @@ const updateCourseList = (state, action) => {
             error: null
         };
 
-        case typesCourses.fetch_courses_suc://'FETCH_COURSES_SUCCESS':
+        case typesCourses.fetch_courses_suc:
         return {
             courses: action.payload,
             sorted: 'all',
@@ -36,7 +32,7 @@ const updateCourseList = (state, action) => {
             error: null
         };
 
-        case typesCourses.fetch_courses_fail://'FETCH_COURSES_FAILURE':
+        case typesCourses.fetch_courses_fail:
         return {
             courses: [],
             sorted: 'all',
@@ -45,9 +41,7 @@ const updateCourseList = (state, action) => {
         };
         case typesCourses.all_courses:
             return {};        
-        case typesCourses.sort_by_date:
-            //console.log(state.coursesList.courses);
-            //console.log(coursesArray);    
+        case typesCourses.sort_by_date: 
             sortArray(coursesArray, {
                 by: 'created',
                 order: 'desc',

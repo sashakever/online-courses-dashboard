@@ -4,7 +4,7 @@ import './error-indicator.scss';
 
 const ErrorIndicator = ({error}) => {
     return (
-        <Title title={error.message}/>        
+        <Title title={error ? error.message : "Error!"}/>        
     );
 };
 

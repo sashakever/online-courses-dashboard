@@ -10,7 +10,7 @@ const updatePages = (state, action) => {
 
     switch (action.type) {
 
-        case typesPages.set_current_page://'FETCH_COURSES_SUCCESS':
+        case typesPages.set_current_page:
         return {
             pageLabel: action.payload,
         };

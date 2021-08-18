@@ -12,7 +12,20 @@ import CoursesList from '../courses-list';
 import './home-page.scss';
 
 const HomePage = ({ user }) => {
-    //console.log(pageLabel);
+
+    const variantsRightCollogin = {
+        hidden: { opacity: 0, x: '100vw' },
+        visible: { opacity: 1, x: 0, transition: { type: 'spring', delay: 0.25, stiffness: 50,} }        
+    }
+    const variantsRightColStat = {
+        hidden: { opacity: 0, x: '100vw' },
+        visible: { opacity: 1, x: 0, transition: { type: 'spring', delay: 0.50, stiffness: 50, } }        
+    }
+    const variantsRightColPremium = {
+        hidden: { opacity: 0, x: '100vw' },
+        visible: { opacity: 1, x: 0, transition: { type: 'spring', delay: user.login === 'guest' ? 0.5 : 0.75, stiffness: 50, } }        
+    }  
+
     let welcome = '';
     let slider = '';
     let logInButton = '';
@@ -52,28 +65,42 @@ const HomePage = ({ user }) => {
                         stiffness: 360,
                         damping: 20,
                         mass: 2 
-                        //delay: 1
                     }}
                     src={require('../../source/img/avatar.png').default} alt='avatar' />
             </div>
         );
         statistics = (
-            <div className="home-page__statistics">
+            <motion.div
+                variants={variantsRightColStat}
+                initial="hidden"
+                animate="visible"
+                className="home-page__statistics">
                 <Statistics user={user} />
-            </div>
+            </motion.div>
         );
     }
-    const [searchText, setSearchText] = useState(null);
+    const [searchText, setSearchText] = useState(null);      
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { delay: 1.5, duration: 1.5 } },
+        exit: { y: '100vh', transition: { ease: 'easeInOut' } },
+        transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+        }
+    }
+
     return (
-        <div className="home-page">            
+        <motion.div
+            variants={containerVariants}
+            initial={false}
+            exit="exit"
+            className="home-page">
             <div className="home-page__left-col">
                 <motion.div
-                    initial={{
-                        y: -500,
-                    }}
-                    animate={{
-                        y: 0,
-                    }}
+                    initial={{ y: '-100vh', }}
+                    animate={{ y: 0, }}
                     transition={{
                         type: "spring",
                         stiffness: 260,
@@ -94,22 +121,28 @@ const HomePage = ({ user }) => {
                 </div>
             </div>
             <div className="home-page__right-col">
-                <div className="home-page__search-login">
+                <motion.div
+                    variants={variantsRightCollogin}
+                    initial="hidden"
+                    animate="visible"
+                    className="home-page__search-login">
                     <div className="home-page__search">
                         <i className="bi bi-search"></i>
                         <input type="text"
                             className="form-control search-input"
                             onChange={(e) => setSearchText(e.target.value)}
                             placeholder="type to search"
-                        /*value={this.state.term}
-                        onChange={this.onSearchChange}*/
                         />
                     </div>
                     {userBloc}
                     {logInButton}
-                </div>
+                </motion.div>
                 {statistics}
-                <div className="home-page__premium premium">
+                <motion.div
+                    variants={variantsRightColPremium}
+                    initial="hidden"
+                    animate="visible"
+                    className="home-page__premium premium">
                     <div className="premium__cols">
                         <div className="premium__left">
                             <div className="premium__title">
@@ -118,23 +151,20 @@ const HomePage = ({ user }) => {
                             <div className="premium__text">
                                 Unlock premium features<br />only for $9.99 per month.
                             </div>
-                            <div className="premium__button">
-                                
-                                    <Button
-                                        title="Go Premium"
-                                        isWhite={false}
-                                        //onEvent={() => {return }}
-                                    //onCurrentPage={onCurentPage('home-page')}
-                                    />
+                            <div className="premium__button">                                
+                                <Button
+                                    title="Go Premium"
+                                    isWhite={false}
+                                />
                             </div>
                         </div>
                         <div className="premium__right">
                             <img src={require('../../source/img/premium.png').default} alt='premium' />
                         </div>
                     </div>
-                </div>                
+                </motion.div>                
             </div>
-        </div>
+        </motion.div>
     );
 };
 
@@ -142,12 +172,4 @@ const mapStateToProps = ({ userState: { user } }) => {
     return { user  };
 };
 
-/*const mapStateToProps = (state) => {    
-    return { state };
-}*/
-
-const mapDispatchToProps = {
-    //onFilterByName: filterByName,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps)(HomePage);

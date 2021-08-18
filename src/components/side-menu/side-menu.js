@@ -12,7 +12,7 @@ import './side-menu.scss';
 const SideMenu = ({ user, onDefaultUser}) => {//fill    
 
     const splitLocation  = useLocation().pathname.split("/");
-    //console.log(splitLocation);
+    
     let clazzHome = 'bi bi-house-door';
     let clazzCourse = "bi bi-x-diamond";
     let clazzUser = "bi bi-person";
@@ -45,7 +45,7 @@ const SideMenu = ({ user, onDefaultUser}) => {//fill
             scale: 1,
             transition: {
                 delayChildren: 0.3,
-                staggerChildren: 0.3
+                staggerChildren: 0.2
             }
         },
         hidden: {
@@ -75,8 +75,7 @@ const SideMenu = ({ user, onDefaultUser}) => {//fill
             <ul className="side-menu__items">
                 <motion.li
                     whileHover={{ scale: 1.5 }}
-                    whileTap={{ scale: 0.8 }}
-                    
+                    whileTap={{ scale: 0.8 }}                    
                     className="side-menu__item">
                     <Link to='/'>
                         <motion.i variants={itemList} className={clazzHome} />

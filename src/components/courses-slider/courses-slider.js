@@ -56,7 +56,6 @@ const CoursesSlider = ({courses}) => {
                         className="swiper-button-prev"
                         whileHover={{ scale: 1.15 }}
                         whileTap={{scale: 0.85}}
-                        //ref={prevRef}
                         onClick={goPrev}
                     >
                         <i className="bi bi-arrow-left-circle"></i>

@@ -8,25 +8,30 @@ import { fetchUser } from '../../actions';
 import Spinner from "../spinner";
 import Title from '../title/';
 
-import './user-page.scss';
+import { motion } from 'framer-motion';
 
-//const onSubmit = 
+import './user-page.scss';
 
 const UserPage = ({ user, loading, error, fetchUser }) => {
     const [login, setLogin] = useState(null);
     const [pass, setPass] = useState(null);
     let message;
-    /*if (loading) {
-        message = (<Spinner/>)
-    }*/
     if (error) {
         message = (<ErrorIndicator error={error }/>)
     }
     const history = useHistory();
     if (!loading && !error)
         history.push('/');
+    
+    const containerVariants = {
+        hidden: { y: '-100vh' },
+        visible: { y: 0, transition: { ease: 'easeInOut', delay: 1 } },
+        exit: { y: '100vh', transition: { ease: 'easeInOut', delay: 1 } },        
+    }
+
     return (
-        <div className="user-page">
+        <div
+            className="user-page">
             <div className="user-page__sign-in sign-in">
                 
                 <form className="sign-in__form"
@@ -72,13 +77,6 @@ const UserPage = ({ user, loading, error, fetchUser }) => {
         </div>
     );
 };
-
-class UserPageContainer extends Component {
-    
-    componentDidMount() {
-        //this
-    }
-}
 
 const mapStateToProps = ({ userState: { user, loading, error } }) => {
     return {user, loading, error}
